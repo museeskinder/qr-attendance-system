@@ -46,14 +46,42 @@ const Reports = () => {
     fetchStudentReports();
   }, [selectedYear]);
 
-  const downloadPDF = () => {
-    const token = localStorage.getItem('token');
-    window.open(`/api/reports/export/pdf?token=${token}&year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, '_blank');
+  const downloadPDF = async () => {
+    try {
+      const res = await api.get(`/reports/export/pdf?year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, {
+        responseType: 'blob',
+      });
+      const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/pdf' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'attendance_report.pdf');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('PDF download failed:', err);
+      setError('Failed to download PDF report.');
+    }
   };
 
-  const downloadExcel = () => {
-    const token = localStorage.getItem('token');
-    window.open(`/api/reports/export/excel?token=${token}&year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, '_blank');
+  const downloadExcel = async () => {
+    try {
+      const res = await api.get(`/reports/export/excel?year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, {
+        responseType: 'blob',
+      });
+      const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'attendance_report.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Excel download failed:', err);
+      setError('Failed to download Excel report.');
+    }
   };
 
 
