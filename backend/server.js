@@ -24,10 +24,15 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
 ];
 
+if (process.env.FRONTEND_URL) {
+  const customOrigins = process.env.FRONTEND_URL.split(',').map(url => url.trim());
+  allowedOrigins.push(...customOrigins);
+}
+
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (curl, Postman, same-origin via proxy)
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
       return callback(null, true);
     }
     // Also allow any LAN IP (useful for mobile testing)

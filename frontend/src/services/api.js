@@ -4,7 +4,7 @@ import axios from 'axios';
 // http://localhost:5000 — this avoids CORS errors entirely.
 // In production (same-origin deployment) this also works correctly.
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || '/api',
 });
 
 api.interceptors.request.use((config) => {
