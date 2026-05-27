@@ -316,11 +316,11 @@ const exportPDF = async (req, res) => {
     doc.text('Student ID', colPositions.id, tableTop, { bold: true });
     doc.text('Student Name', colPositions.name, tableTop, { bold: true });
     doc.text('Course', colPositions.course, tableTop, { bold: true });
-    doc.text('Presents', colPositions.present, tableTop, { align: 'right', bold: true });
-    doc.text('Lates', colPositions.late, tableTop, { align: 'right', bold: true });
-    doc.text('Absents', colPositions.absent, tableTop, { align: 'right', bold: true });
-    doc.text('Attendance %', colPositions.rate, tableTop, { align: 'right', bold: true });
-    doc.text('Exam Eligibility', colPositions.status, tableTop, { align: 'right', bold: true });
+    doc.text('Presents', colPositions.present, tableTop, { width: colWidths.present, align: 'right', bold: true });
+    doc.text('Lates', colPositions.late, tableTop, { width: colWidths.late, align: 'right', bold: true });
+    doc.text('Absents', colPositions.absent, tableTop, { width: colWidths.absent, align: 'right', bold: true });
+    doc.text('Attendance %', colPositions.rate, tableTop, { width: colWidths.rate, align: 'right', bold: true });
+    doc.text('Exam Eligibility', colPositions.status, tableTop, { width: colWidths.status, align: 'right', bold: true });
 
     // Draw horizontal separator line
     doc.strokeColor('#E2E8F0').lineWidth(1).moveTo(30, tableTop + 15).lineTo(565, tableTop + 15).stroke();
@@ -338,11 +338,11 @@ const exportPDF = async (req, res) => {
         doc.text('Student ID', colPositions.id, yPosition);
         doc.text('Student Name', colPositions.name, yPosition);
         doc.text('Course', colPositions.course, yPosition);
-        doc.text('Presents', colPositions.present, yPosition, { align: 'right' });
-        doc.text('Lates', colPositions.late, yPosition, { align: 'right' });
-        doc.text('Absents', colPositions.absent, yPosition, { align: 'right' });
-        doc.text('Attendance %', colPositions.rate, yPosition, { align: 'right' });
-        doc.text('Exam Eligibility', colPositions.status, yPosition, { align: 'right' });
+        doc.text('Presents', colPositions.present, yPosition, { width: colWidths.present, align: 'right' });
+        doc.text('Lates', colPositions.late, yPosition, { width: colWidths.late, align: 'right' });
+        doc.text('Absents', colPositions.absent, yPosition, { width: colWidths.absent, align: 'right' });
+        doc.text('Attendance %', colPositions.rate, yPosition, { width: colWidths.rate, align: 'right' });
+        doc.text('Exam Eligibility', colPositions.status, yPosition, { width: colWidths.status, align: 'right' });
         doc.strokeColor('#E2E8F0').lineWidth(1).moveTo(30, yPosition + 15).lineTo(565, yPosition + 15).stroke();
         yPosition += 25;
       }
