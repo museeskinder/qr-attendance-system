@@ -192,11 +192,11 @@ const ActivityLogs = () => {
                   const rc = roleColors(log.role);
                   return (
                     <tr key={log.log_id || i}>
-                      <td style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
+                      <td data-label="Timestamp" style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
                         {gmt3Time.toLocaleString('en-GB')}
                       </td>
-                      <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{log.action}</td>
-                      <td>
+                      <td data-label="Action Triggered" style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{log.action}</td>
+                      <td data-label="Operated By">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <div style={{ display: 'flex', background: 'rgba(255,255,255,0.03)', padding: '0.35rem', borderRadius: '50%' }}>
                             <User size={13} style={{ color: 'var(--text-muted)' }} />
@@ -207,7 +207,7 @@ const ActivityLogs = () => {
                           </div>
                         </div>
                       </td>
-                      <td>
+                      <td data-label="User Role">
                         <span className="status-badge" style={{
                           background: rc.bg,
                           color: rc.color,

@@ -257,14 +257,14 @@ const Reports = () => {
               <tbody>
                 {sortedStudents.map((s, i) => (
                   <tr key={`${s.student_id}-${s.course_code}-${i}`}>
-                    <td style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{s.student_code}</td>
-                    <td style={{ fontWeight: 600 }}>{s.student_name}</td>
-                    <td style={{ color: 'var(--primary)', fontWeight: 600 }}>{s.course_code}</td>
-                    <td style={{ color: 'var(--success)', fontWeight: 700 }}>{s.present_count}</td>
-                    <td style={{ color: 'var(--warning)', fontWeight: 700 }}>{s.late_count}</td>
-                    <td style={{ color: 'var(--danger)', fontWeight: 700 }}>{s.absent_count}</td>
-                    <td style={{ fontWeight: 600 }}>{s.attendance_percentage}%</td>
-                    <td>
+                    <td data-label="Student ID" style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{s.student_code}</td>
+                    <td data-label="Student Name" style={{ fontWeight: 600 }}>{s.student_name}</td>
+                    <td data-label="Course Code" style={{ color: 'var(--primary)', fontWeight: 600 }}>{s.course_code}</td>
+                    <td data-label="Presents" style={{ color: 'var(--success)', fontWeight: 700 }}>{s.present_count}</td>
+                    <td data-label="Lates" style={{ color: 'var(--warning)', fontWeight: 700 }}>{s.late_count}</td>
+                    <td data-label="Absents" style={{ color: 'var(--danger)', fontWeight: 700 }}>{s.absent_count}</td>
+                    <td data-label="Attendance %" style={{ fontWeight: 600 }}>{s.attendance_percentage}%</td>
+                    <td data-label="Exam Eligibility">
                       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                         {s.is_eligible ? (
                           <span className="status-badge status-present">

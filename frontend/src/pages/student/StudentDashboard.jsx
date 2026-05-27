@@ -387,20 +387,20 @@ const StudentDashboard = () => {
                   const gmt3Marked = new Date(markedStamp.getTime() + 3 * 60 * 60 * 1000);
                   return (
                     <tr key={i}>
-                      <td style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                      <td data-label="Timestamp" style={{ fontFamily: 'monospace', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                         {gmt3Marked.toLocaleString('en-GB')}
                       </td>
-                      <td style={{ fontWeight: 500 }}>
+                      <td data-label="Session Date" style={{ fontWeight: 500 }}>
                         {new Date(record.session_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                       </td>
-                      <td>
+                      <td data-label="Course Code & Name">
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                           <span style={{ fontWeight: 600, color: 'white' }}>{record.course_code}</span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{record.course_name}</span>
                         </div>
                       </td>
-                      <td style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{record.start_time} - {record.end_time}</td>
-                      <td>
+                      <td data-label="Time Block" style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{record.start_time} - {record.end_time}</td>
+                      <td data-label="Attendance Status">
                         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                           <span className={`status-badge ${record.status === 'Present' ? 'status-present' : 'status-late'}`}>
                             {record.status || 'Present'}

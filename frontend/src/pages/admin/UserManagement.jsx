@@ -232,13 +232,13 @@ const UserManagement = () => {
               <tbody>
                 {filteredUsers.map(u => (
                   <tr key={u.id}>
-                    <td>
+                    <td data-label="User Details">
                       <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{u.name}</span>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{u.email}</span>
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Role">
                       <span className="status-badge" style={{ 
                         background: u.role === 'instructor' ? 'var(--primary-glow)' : 'var(--success-glow)',
                         color: u.role === 'instructor' ? 'var(--primary)' : 'var(--success)',
@@ -247,9 +247,9 @@ const UserManagement = () => {
                         {u.role}
                       </span>
                     </td>
-                    <td style={{ color: 'var(--text-muted)' }}>{u.student_year || '—'}</td>
-                    <td style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{u.student_id || '—'}</td>
-                    <td>
+                    <td data-label="Acad. Year" style={{ color: 'var(--text-muted)' }}>{u.student_year || '—'}</td>
+                    <td data-label="ID Code" style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>{u.student_id || '—'}</td>
+                    <td data-label="Actions">
                       <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
                         <button
                           onClick={() => openEdit(u)}

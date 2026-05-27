@@ -180,10 +180,10 @@ const SessionReport = () => {
                   const gmt3Stamp = new Date(stamp.getTime() + 3 * 60 * 60 * 1000);
                   return (
                     <tr key={record.attendance_id}>
-                      <td style={{ fontFamily: 'monospace', fontWeight: 600, color: 'var(--primary)' }}>{record.student_id}</td>
-                      <td style={{ fontWeight: 600 }}>{record.student_name}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{record.student_email}</td>
-                      <td style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>
+                      <td data-label="Student ID" style={{ fontFamily: 'monospace', fontWeight: 600, color: 'var(--primary)' }}>{record.student_id}</td>
+                      <td data-label="Student Profile" style={{ fontWeight: 600 }}>{record.student_name}</td>
+                      <td data-label="Email Address" style={{ color: 'var(--text-muted)' }}>{record.student_email}</td>
+                      <td data-label="Marked Timestamp" style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>
                         {gmt3Stamp.toLocaleString('en-GB')}
                       </td>
                     </tr>

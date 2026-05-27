@@ -688,6 +688,76 @@ select.input-field {
   }
 }
 
+@media (max-width: 768px) {
+  .data-table-container {
+    border: none !important;
+    background: transparent !important;
+    max-height: none !important;
+    box-shadow: none !important;
+  }
+
+  .data-table {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .data-table thead {
+    display: none !important;
+  }
+
+  .data-table tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .data-table tr {
+    display: block !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    margin-bottom: 1.25rem !important;
+    padding: 1.25rem !important;
+    box-shadow: var(--glass-shadow) !important;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .data-table tr:hover {
+    background: var(--bg-card-hover) !important;
+    border-color: rgba(99, 102, 241, 0.2) !important;
+  }
+
+  .data-table td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.75rem 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    font-size: 0.88rem !important;
+    text-align: right !important;
+    width: 100% !important;
+    min-height: 2.75rem !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow: visible !important;
+  }
+
+  .data-table td:last-child {
+    border-bottom: none !important;
+  }
+
+  .data-table td::before {
+    content: attr(data-label) !important;
+    font-weight: 700 !important;
+    color: var(--text-muted) !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    text-align: left !important;
+    margin-right: 1.5rem !important;
+    flex-shrink: 0 !important;
+  }
+}
+
 @media (max-width: 640px) {
   .glass-panel {
     padding: 1.25rem;

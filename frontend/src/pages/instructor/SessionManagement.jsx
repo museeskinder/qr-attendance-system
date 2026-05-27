@@ -516,22 +516,22 @@ const SessionManagement = () => {
                 <tbody>
                   {sessions.map(s => (
                     <tr key={s.session_id}>
-                      <td style={{ whiteSpace: 'nowrap', fontWeight: 500 }}>
+                      <td data-label="Date" style={{ whiteSpace: 'nowrap', fontWeight: 500 }}>
                         {new Date(s.session_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                       </td>
-                      <td style={{ fontWeight: 600, color: 'var(--primary)' }}>{s.course_code}</td>
-                      <td>
+                      <td data-label="Course" style={{ fontWeight: 600, color: 'var(--primary)' }}>{s.course_code}</td>
+                      <td data-label="Details">
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
                           <span style={{ color: 'var(--text-primary)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} /> {s.room_number || 'N/A'}</span>
                           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Clock size={12} /> {s.start_time} – {s.end_time}</span>
                         </div>
                       </td>
-                      <td>
+                      <td data-label="Status">
                         <span className={`status-badge ${s.status === 'open' ? 'status-open' : 'status-closed'}`}>
                           {s.status}
                         </span>
                       </td>
-                      <td>
+                      <td data-label="Actions">
                         <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
                           <button
                             onClick={() => toggleStatus(s.session_id, s.status)}
@@ -551,7 +551,7 @@ const SessionManagement = () => {
                             </button>
                           )}
                           
-                          <Link
+                          <Link 
                             to={`/instructor/sessions/${s.session_id}/report`}
                             className="btn btn-secondary"
                             style={{ padding: '0.4rem 0.65rem', fontSize: '0.8rem', textDecoration: 'none' }}

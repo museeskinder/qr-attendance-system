@@ -228,11 +228,11 @@ const CourseManagement = () => {
                 <tbody>
                   {courses.map(course => (
                     <tr key={course.course_id}>
-                      <td style={{ fontWeight: 600, color: 'var(--primary)', whiteSpace: 'nowrap' }}>{course.course_code}</td>
-                      <td>{course.course_name}</td>
-                      <td style={{ color: 'var(--text-muted)' }}>{course.department || '—'}</td>
-                      <td>{course.credit_hour || '—'} hrs</td>
-                      <td style={{ whiteSpace: 'nowrap' }}>
+                      <td data-label="Code" style={{ fontWeight: 600, color: 'var(--primary)', whiteSpace: 'nowrap' }}>{course.course_code}</td>
+                      <td data-label="Name">{course.course_name}</td>
+                      <td data-label="Dept." style={{ color: 'var(--text-muted)' }}>{course.department || '—'}</td>
+                      <td data-label="Credits">{course.credit_hour || '—'} hrs</td>
+                      <td data-label="Instructor" style={{ whiteSpace: 'nowrap' }}>
                         {course.instructor_name ? (
                           <span style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
                             <User size={13} style={{ color: 'var(--text-muted)', flexShrink: 0 }} /> {course.instructor_name}

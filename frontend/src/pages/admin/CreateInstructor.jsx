@@ -490,7 +490,7 @@ const CreateInstructor = () => {
                         title="Click to edit course assignments"
                         whileHover={{ backgroundColor: 'rgba(99,102,241,0.06)' }}
                       >
-                        <td>
+                        <td data-label="Name">
                           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                             <div style={{
                               width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
@@ -505,10 +505,10 @@ const CreateInstructor = () => {
                             </span>
                           </div>
                         </td>
-                        <td style={{ color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        <td data-label="Email" style={{ color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                           {inst.email}
                         </td>
-                        <td>
+                        <td data-label="Status">
                           {inst.requires_password_change ? (
                             <span className="status-badge status-late">Pending</span>
                           ) : (
