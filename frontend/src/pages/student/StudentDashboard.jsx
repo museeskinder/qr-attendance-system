@@ -146,7 +146,7 @@ const StudentDashboard = () => {
               const eligible = stat.attendance_percentage >= eligibleThreshold;
               return (
                 <div key={stat.course_id} style={{
-                  background: 'rgba(10, 15, 30, 0.4)',
+                  background: 'var(--bg-card)',
                   border: '1px solid var(--glass-border)',
                   borderRadius: '14px',
                   padding: '1.25rem',
@@ -171,7 +171,7 @@ const StudentDashboard = () => {
                         ID: {stat.course_id}
                       </span>
                     </div>
-                    <h4 style={{ margin: 0, fontSize: '1rem', color: 'white', fontWeight: 700 }}>{stat.course_name}</h4>
+                    <h4 style={{ margin: 0, fontSize: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>{stat.course_name}</h4>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><User size={12} /> {stat.instructor_name || 'Unassigned'}</span>
                   </div>
                   
@@ -179,7 +179,7 @@ const StudentDashboard = () => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '0.35rem' }}>
-                        <span style={{ color: 'var(--text-muted)' }}>Min Required: <strong style={{ color: 'white' }}>{eligibleThreshold}%</strong></span>
+                        <span style={{ color: 'var(--text-muted)' }}>Min Required: <strong style={{ color: 'var(--text-primary)' }}>{eligibleThreshold}%</strong></span>
                         <strong style={{ color: eligible ? 'var(--success)' : 'var(--danger)' }}>Actual: {stat.attendance_percentage}%</strong>
                       </div>
                       
@@ -195,7 +195,7 @@ const StudentDashboard = () => {
                     </div>
  
                     <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'right', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                      <span>Attended: <strong style={{ color: 'white' }}>{stat.attended_count}</strong></span>
+                      <span>Attended: <strong style={{ color: 'var(--text-primary)' }}>{stat.attended_count}</strong></span>
                       <span>Missed: <strong>{stat.missed_count}</strong></span>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ const StudentDashboard = () => {
         className="glass-panel animate-glow" 
         style={{ 
           border: '1px solid rgba(16, 185, 129, 0.25)', 
-          background: 'radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.04) 0%, rgba(16, 22, 42, 0.6) 80%)',
+          background: 'radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 85%)',
           display: 'flex',
           flexDirection: 'column',
           gap: '1.25rem'
@@ -244,7 +244,7 @@ const StudentDashboard = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--success)' }}>
             <Camera size={18} />
-            <h3 style={{ margin: 0, color: 'white' }}>Active Open Broadcasts</h3>
+            <h3 style={{ margin: 0, color: 'var(--text-primary)' }}>Active Open Broadcasts</h3>
           </div>
           <span style={{ fontSize: '0.8rem', padding: '0.3rem 0.75rem', background: 'rgba(255,255,255,0.04)', borderRadius: '20px', border: '1px solid var(--glass-border)', color: 'var(--text-muted)' }}>
             Rotating refresh token: <strong style={{ color: 'var(--primary)' }}>{countdown}s</strong>
@@ -275,7 +275,7 @@ const StudentDashboard = () => {
                   <Lock size={18} />
                 </div>
                 <div>
-                  <p style={{ margin: 0, color: 'white', fontWeight: 700, fontSize: '0.95rem' }}>
+                  <p style={{ margin: 0, color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.95rem' }}>
                     Locked Session: {localStorage.getItem('selected_session_code')}
                   </p>
                   <p style={{ margin: '0.15rem 0 0 0', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -307,7 +307,7 @@ const StudentDashboard = () => {
               
               return (
                 <div key={session.session_id} style={{
-                  background: isSelected ? 'rgba(99, 102, 241, 0.03)' : 'rgba(10, 15, 30, 0.4)',
+                  background: isSelected ? 'var(--primary-glow)' : 'var(--bg-card)',
                   border: isSelected ? '1.2px solid var(--primary)' : '1.2px solid var(--glass-border)',
                   borderRadius: '12px',
                   padding: '1.1rem 1.25rem',
@@ -318,7 +318,7 @@ const StudentDashboard = () => {
                   gap: '1rem'
                 }}>
                   <div>
-                    <h4 style={{ margin: 0, color: 'white', fontSize: '1.05rem', fontWeight: 700 }}>
+                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1.05rem', fontWeight: 700 }}>
                       {session.course_code} - {session.course_name}
                     </h4>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '0.25rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
@@ -395,7 +395,7 @@ const StudentDashboard = () => {
                       </td>
                       <td data-label="Course Code & Name">
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                          <span style={{ fontWeight: 600, color: 'white' }}>{record.course_code}</span>
+                          <span style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{record.course_code}</span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{record.course_name}</span>
                         </div>
                       </td>

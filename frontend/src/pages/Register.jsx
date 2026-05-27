@@ -390,7 +390,6 @@ const Register = () => {
                       if (yearError) setYearError('');
                     }}
                     required
-                    style={{ appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
                   >
                     <option value="">Select Year</option>
                     {['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'].map(y => (
@@ -410,7 +409,6 @@ const Register = () => {
                       if (deptError) setDeptError('');
                     }}
                     required
-                    style={{ appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
                   >
                     <option value="">Select Department</option>
                     {departments.map(d => (

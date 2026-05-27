@@ -191,7 +191,7 @@ const Reports = () => {
               value={selectedYear} 
               onChange={(e) => setSelectedYear(e.target.value)}
               className="input-field"
-              style={{ width: 'auto', marginBottom: 0, padding: '0.55rem 1.75rem 0.55rem 1rem', appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
+              style={{ width: 'auto', marginBottom: 0, padding: '0.55rem 1.75rem 0.55rem 1rem' }}
             >
               <option value="">All Academic Years</option>
               <option value="Year 1">Year 1</option>
@@ -209,7 +209,7 @@ const Reports = () => {
               value={sortBy} 
               onChange={(e) => setSortBy(e.target.value)}
               className="input-field"
-              style={{ width: 'auto', marginBottom: 0, padding: '0.55rem 1.75rem 0.55rem 1rem', appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
+              style={{ width: 'auto', marginBottom: 0, padding: '0.55rem 1.75rem 0.55rem 1rem' }}
             >
               <option value="name_asc">Name (A-Z)</option>
               <option value="eligibility_desc">Eligible First</option>

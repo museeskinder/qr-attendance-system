@@ -409,7 +409,6 @@ const SessionManagement = () => {
                 onChange={handleChange} 
                 required
                 disabled={submitLoading}
-                style={{ appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
               >
                 <option value="">Select Target Course</option>
                 {courses.map(c => <option key={c.course_id} value={c.course_id}>{c.course_code} - {c.course_name}</option>)}
@@ -519,20 +518,20 @@ const SessionManagement = () => {
                       <td data-label="Date" style={{ whiteSpace: 'nowrap', fontWeight: 500 }}>
                         {new Date(s.session_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                       </td>
-                      <td data-label="Course" style={{ fontWeight: 600, color: 'var(--primary)' }}>{s.course_code}</td>
+                       <td data-label="Course" style={{ fontWeight: 600, color: 'var(--primary)', whiteSpace: 'nowrap' }}>{s.course_code}</td>
                       <td data-label="Details">
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                          <span style={{ color: 'var(--text-primary)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><MapPin size={12} /> {s.room_number || 'N/A'}</span>
-                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}><Clock size={12} /> {s.start_time} – {s.end_time}</span>
+                          <span style={{ color: 'var(--text-primary)', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap' }}><MapPin size={12} /> {s.room_number || 'N/A'}</span>
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap' }}><Clock size={12} /> {s.start_time} – {s.end_time}</span>
                         </div>
                       </td>
-                      <td data-label="Status">
+                      <td data-label="Status" style={{ whiteSpace: 'nowrap' }}>
                         <span className={`status-badge ${s.status === 'open' ? 'status-open' : 'status-closed'}`}>
                           {s.status}
                         </span>
                       </td>
-                      <td data-label="Actions">
-                        <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+                      <td data-label="Actions" style={{ whiteSpace: 'nowrap' }}>
+                        <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'flex-end' }}>
                           <button
                             onClick={() => toggleStatus(s.session_id, s.status)}
                             className={`btn ${s.status === 'open' ? 'btn-danger' : 'btn-success'}`}

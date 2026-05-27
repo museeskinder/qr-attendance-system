@@ -178,7 +178,7 @@ const InstructorDashboard = () => {
 
               return (
                 <div key={course.course_id} style={{
-                  background: 'rgba(10, 15, 30, 0.4)',
+                  background: 'var(--bg-card)',
                   border: '1px solid var(--glass-border)',
                   borderRadius: '14px',
                   padding: '1.25rem',
@@ -203,7 +203,7 @@ const InstructorDashboard = () => {
                         Credit Hours: {course.credit_hour || 'N/A'}
                       </span>
                     </div>
-                    <h4 style={{ margin: 0, fontSize: '1rem', color: 'white', fontWeight: 700 }}>{course.course_name}</h4>
+                    <h4 style={{ margin: 0, fontSize: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>{course.course_name}</h4>
                   </div>
                   
                   {/* Slider Control Container */}
@@ -300,7 +300,7 @@ const InstructorDashboard = () => {
                 <div style={{ background: 'var(--primary-glow)', padding: '0.65rem', borderRadius: '10px', display: 'flex' }}>
                   <QrCode size={20} />
                 </div>
-                <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700, color: 'white' }}>Manage Attendance Sessions</h4>
+                <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)' }}>Manage Attendance Sessions</h4>
               </div>
               <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', flex: 1 }}>
                 Open active session gates, select courses, set rooms, and project secure QR codes onto class screens.
@@ -338,7 +338,7 @@ const InstructorDashboard = () => {
                 <div style={{ background: 'var(--success-glow)', padding: '0.65rem', borderRadius: '10px', display: 'flex' }}>
                   <ClipboardList size={20} />
                 </div>
-                <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700, color: 'white' }}>Student Eligibility Reports</h4>
+                <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)' }}>Student Eligibility Reports</h4>
               </div>
               <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-muted)', flex: 1 }}>
                 Monitor attendance percentages for students, check exam eligibility lists based on your set thresholds, and export to PDF/Excel.

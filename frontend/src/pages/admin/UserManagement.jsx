@@ -193,7 +193,7 @@ const UserManagement = () => {
               value={roleFilter}
               onChange={e => setRoleFilter(e.target.value)}
               className="input-field"
-              style={{ padding: '0.55rem 1.75rem 0.55rem 1rem', width: 'auto', marginBottom: 0, appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
+              style={{ padding: '0.55rem 1.75rem 0.55rem 1rem', width: 'auto', marginBottom: 0 }}
             >
               <option value="">All Roles</option>
               <option value="instructor">Instructors</option>
@@ -327,7 +327,6 @@ const UserManagement = () => {
                       value={editForm.student_year} 
                       onChange={e => setEditForm({ ...editForm, student_year: e.target.value })}
                       disabled={editLoading}
-                      style={{ appearance: 'none', background: 'rgba(10, 15, 30, 0.8)' }}
                     >
                       <option value="">— None —</option>
                       {['Year 1', 'Year 2', 'Year 3', 'Year 4', 'Year 5'].map(y => (

@@ -456,7 +456,7 @@ select.input-field {
    TABLES — vertical scroll only, no horizontal scroll
 ═══════════════════════════════════════════════════ */
 .data-table-container {
-  overflow-x: hidden;     /* ← key: suppress horizontal scroll */
+  overflow-x: auto;       /* ← key: allow horizontal scroll if columns exceed container */
   overflow-y: auto;
   border-radius: 12px;
   border: 1px solid var(--glass-border);
@@ -472,16 +472,15 @@ select.input-field {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  table-layout: fixed;    /* ← forces columns to fit within container */
+  table-layout: auto;     /* ← dynamic sizing based on content */
 }
 
 .data-table th,
 .data-table td {
-  padding: 1rem 1.1rem;
+  padding: 0.7rem 0.8rem;
   border-bottom: 1px solid var(--glass-border);
-  font-size: 0.9rem;
-  word-break: break-word; /* ← long text wraps instead of expanding */
-  overflow: hidden;
+  font-size: 0.82rem;
+  word-break: normal;
 }
 
 .data-table th {
@@ -495,6 +494,7 @@ select.input-field {
   position: sticky;
   top: 0;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .data-table tr:last-child td { border-bottom: none; }
