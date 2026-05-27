@@ -142,7 +142,8 @@ const StudentDashboard = () => {
             gap: '1.25rem'
           }}>
             {courseStats.map(stat => {
-              const eligible = stat.attendance_percentage >= 75;
+              const eligibleThreshold = stat.eligibility_percentage || 75;
+              const eligible = stat.attendance_percentage >= eligibleThreshold;
               return (
                 <div key={stat.course_id} style={{
                   background: 'rgba(10, 15, 30, 0.4)',
@@ -177,9 +178,9 @@ const StudentDashboard = () => {
                   {/* Attendance visual indicator meter */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                     <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '0.25rem' }}>
-                        <span style={{ color: 'var(--text-muted)' }}>Attendance Rate</span>
-                        <strong style={{ color: eligible ? 'var(--success)' : 'var(--danger)' }}>{stat.attendance_percentage}%</strong>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '0.35rem' }}>
+                        <span style={{ color: 'var(--text-muted)' }}>Min Required: <strong style={{ color: 'white' }}>{eligibleThreshold}%</strong></span>
+                        <strong style={{ color: eligible ? 'var(--success)' : 'var(--danger)' }}>Actual: {stat.attendance_percentage}%</strong>
                       </div>
                       
                       {/* Visual progress bar */}
@@ -192,12 +193,13 @@ const StudentDashboard = () => {
                         }} />
                       </div>
                     </div>
-
+ 
                     <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'right', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                       <span>Attended: <strong style={{ color: 'white' }}>{stat.attended_count}</strong></span>
                       <span>Missed: <strong>{stat.missed_count}</strong></span>
                     </div>
                   </div>
+
 
                   {/* Exam Eligibility check footer tag */}
                   <div style={{ 

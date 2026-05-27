@@ -225,8 +225,10 @@ const getStudentStats = async (req, res) => {
         missed_count: missedCount,
         total_sessions: totalSessions,
         attendance_percentage: attendancePercentage,
+        eligibility_percentage: eligibilityThreshold,
         eligible
       });
+
     }
 
     sendResponse(res, 200, true, stats, null);

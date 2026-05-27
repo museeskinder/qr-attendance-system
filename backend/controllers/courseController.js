@@ -95,4 +95,48 @@ const getCoursesByDepartment = async (req, res) => {
   }
 };
 
-module.exports = { createCourse, getCourses, getCoursesByDepartment };
+const updateCourseEligibility = async (req, res) => {
+  const { id } = req.params;
+  const { eligibility_percentage } = req.body;
+
+  if (eligibility_percentage === undefined || eligibility_percentage === null) {
+    return sendResponse(res, 400, false, null, 'eligibility_percentage is required');
+  }
+
+  const percentage = parseInt(eligibility_percentage);
+  if (isNaN(percentage) || percentage < 0 || percentage > 100) {
+    return sendResponse(res, 400, false, null, 'eligibility_percentage must be an integer between 0 and 100');
+  }
+
+  try {
+    const pool = getPool();
+
+    // If instructor, check if they are assigned to this course
+    if (req.user.role === 'instructor') {
+      const [assignment] = await pool.query(
+        'SELECT * FROM instructor_courses WHERE instructor_id = ? AND course_id = ?',
+        [req.user.id, id]
+      );
+      if (assignment.length === 0) {
+        return sendResponse(res, 403, false, null, 'Access denied. You are not assigned to this course.');
+      }
+    }
+
+    const [result] = await pool.query(
+      'UPDATE courses SET eligibility_percentage = ? WHERE course_id = ? RETURNING *',
+      [percentage, id]
+    );
+
+    if (result.length === 0) {
+      return sendResponse(res, 404, false, null, 'Course not found');
+    }
+
+    sendResponse(res, 200, true, { course_id: id, eligibility_percentage: percentage }, 'Course eligibility threshold updated successfully');
+  } catch (error) {
+    console.error(error);
+    sendResponse(res, 500, false, null, 'Server error while updating course eligibility');
+  }
+};
+
+module.exports = { createCourse, getCourses, getCoursesByDepartment, updateCourseEligibility };
+

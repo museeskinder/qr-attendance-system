@@ -48,13 +48,14 @@ const Reports = () => {
 
   const downloadPDF = () => {
     const token = localStorage.getItem('token');
-    window.open(`/api/reports/export/pdf?token=${token}`, '_blank');
+    window.open(`/api/reports/export/pdf?token=${token}&year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, '_blank');
   };
 
   const downloadExcel = () => {
     const token = localStorage.getItem('token');
-    window.open(`/api/reports/export/excel?token=${token}`, '_blank');
+    window.open(`/api/reports/export/excel?token=${token}&year=${encodeURIComponent(selectedYear)}&sortBy=${encodeURIComponent(sortBy)}`, '_blank');
   };
+
 
   const handleRefresh = () => {
     setSelectedYear('');
