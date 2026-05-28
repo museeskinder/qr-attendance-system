@@ -20,3 +20,6 @@ module.exports = {
   query: (text, params) => pool.query(text, params),
   getClient: () => pool.connect()
 };
+
+
+//comment to show git merge
